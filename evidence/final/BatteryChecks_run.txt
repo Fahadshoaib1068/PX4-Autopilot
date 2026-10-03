@@ -1,33 +1,35 @@
 ERROR [px4_work_queue] not running
 ERROR [px4_work_queue] wq:lp_default not available
 ERROR [px4_work_queue] init failed
-[==========] Running 11 tests from 1 test suite.
+[==========] Running 12 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 11 tests from BatteryChecksTest
+[----------] 12 tests from BatteryChecksTest
 [ RUN      ] BatteryChecksTest.RequiredBatteryDisconnected_ReportsFailureAndUnhealthy
-[       OK ] BatteryChecksTest.RequiredBatteryDisconnected_ReportsFailureAndUnhealthy (1 ms)
+[       OK ] BatteryChecksTest.RequiredBatteryDisconnected_ReportsFailureAndUnhealthy (0 ms)
 [ RUN      ] BatteryChecksTest.OptionalBatteryDisconnected_NoFailure
-[       OK ] BatteryChecksTest.OptionalBatteryDisconnected_NoFailure (1 ms)
+[       OK ] BatteryChecksTest.OptionalBatteryDisconnected_NoFailure (0 ms)
 [ RUN      ] BatteryChecksTest.RequiredBatteryConnected_NoFailure
-[       OK ] BatteryChecksTest.RequiredBatteryConnected_NoFailure (1 ms)
+[       OK ] BatteryChecksTest.RequiredBatteryConnected_NoFailure (0 ms)
 [ RUN      ] BatteryChecksTest.BatteryFault_ReportsFailureAndUnhealthy
-[       OK ] BatteryChecksTest.BatteryFault_ReportsFailureAndUnhealthy (1 ms)
+[       OK ] BatteryChecksTest.BatteryFault_ReportsFailureAndUnhealthy (0 ms)
 [ RUN      ] BatteryChecksTest.BatteryDisconnectsAfterArming_ReportsFailureAndUnhealthy
-[       OK ] BatteryChecksTest.BatteryDisconnectsAfterArming_ReportsFailureAndUnhealthy (1 ms)
+[       OK ] BatteryChecksTest.BatteryDisconnectsAfterArming_ReportsFailureAndUnhealthy (0 ms)
 [ RUN      ] BatteryChecksTest.LowBatteryWarning_ReportsFailure
 [       OK ] BatteryChecksTest.LowBatteryWarning_ReportsFailure (0 ms)
 [ RUN      ] BatteryChecksTest.EmergencyBatteryWarning_BlocksArming
 [       OK ] BatteryChecksTest.EmergencyBatteryWarning_BlocksArming (0 ms)
 [ RUN      ] BatteryChecksTest.FiniteBatteryTimeRemaining_IsTracked
-[       OK ] BatteryChecksTest.FiniteBatteryTimeRemaining_IsTracked (1 ms)
+[       OK ] BatteryChecksTest.FiniteBatteryTimeRemaining_IsTracked (0 ms)
 [ RUN      ] BatteryChecksTest.LowRemainingFlightTime_BlocksArming
 [       OK ] BatteryChecksTest.LowRemainingFlightTime_BlocksArming (0 ms)
 [ RUN      ] BatteryChecksTest.SupplyCheckCircuitBreaker_DisablesBatteryCheck
-[       OK ] BatteryChecksTest.SupplyCheckCircuitBreaker_DisablesBatteryCheck (1 ms)
+[       OK ] BatteryChecksTest.SupplyCheckCircuitBreaker_DisablesBatteryCheck (0 ms)
 [ RUN      ] BatteryChecksTest.StaleBatteryUpdate_ReportsUnhealthy
-[       OK ] BatteryChecksTest.StaleBatteryUpdate_ReportsUnhealthy (1 ms)
-[----------] 11 tests from BatteryChecksTest (15 ms total)
+[       OK ] BatteryChecksTest.StaleBatteryUpdate_ReportsUnhealthy (0 ms)
+[ RUN      ] BatteryChecksTest.FailedBatteryWarning_ReportsUnhealthy
+[       OK ] BatteryChecksTest.FailedBatteryWarning_ReportsUnhealthy (0 ms)
+[----------] 12 tests from BatteryChecksTest (5 ms total)
 
 [----------] Global test environment tear-down
-[==========] 11 tests from 1 test suite ran. (15 ms total)
-[  PASSED  ] 11 tests.
+[==========] 12 tests from 1 test suite ran. (6 ms total)
+[  PASSED  ] 12 tests.

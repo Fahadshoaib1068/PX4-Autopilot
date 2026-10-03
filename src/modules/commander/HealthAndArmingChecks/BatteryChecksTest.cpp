@@ -300,3 +300,18 @@ TEST_F(BatteryChecksTest, StaleBatteryUpdate_ReportsUnhealthy)
         EXPECT_TRUE(hasBatteryHealthError());
         EXPECT_EQ(canArm(), 0u);
 }
+TEST_F(BatteryChecksTest, FailedBatteryWarning_ReportsUnhealthy)
+{
+        BatteryConfig battery;
+        battery.connected = true;
+        battery.required = true;
+        battery.warning = battery_status_s::WARNING_FAILED;
+
+        publishBattery(0, battery);
+        publishBattery(1, battery);
+
+        run(false);
+
+        EXPECT_TRUE(hasBatteryHealthError());
+        EXPECT_EQ(canArm(), 0u);
+}
