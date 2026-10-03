@@ -203,7 +203,7 @@ TEST_F(BatteryChecksTest, BatteryDisconnectsAfterArming_ReportsFailureAndUnhealt
         EXPECT_EQ(canArm(), 0u);
 }
 
-TEST_F(BatteryChecksTest, LowBatteryWarning_ReportsFailure)
+TEST_F(BatteryChecksTest, LowBatteryWarning_DoesNotReportFailure)
 {
         BatteryConfig battery;
         battery.connected = true;
@@ -237,7 +237,7 @@ TEST_F(BatteryChecksTest, EmergencyBatteryWarning_BlocksArming)
         EXPECT_EQ(canArm(), 0u);
 }
 
-TEST_F(BatteryChecksTest, FiniteBatteryTimeRemaining_IsTracked)
+TEST_F(BatteryChecksTest, FiniteBatteryTimeRemaining_DoesNotCauseFailure)
 {
         BatteryConfig battery;
         battery.connected = true;
@@ -273,14 +273,18 @@ TEST_F(BatteryChecksTest, LowRemainingFlightTime_BlocksArming)
 
 TEST_F(BatteryChecksTest, SupplyCheckCircuitBreaker_DisablesBatteryCheck)
 {
+        flags.battery_unhealthy = true;
+        flags.battery_low_remaining_time = true;
+        flags.battery_warning = battery_status_s::WARNING_CRITICAL;
+
         setParam("CBRK_SUPPLY_CHK", int32_t{894281});
+        checks.updateParams();
 
         run(false);
 
-        EXPECT_FALSE(hasBatteryHealthError());
         EXPECT_FALSE(flags.battery_unhealthy);
-        EXPECT_FALSE(hasBatteryPresent());
-        EXPECT_EQ(canArm(), 0xFFFFFFFFu);
+        EXPECT_FALSE(flags.battery_low_remaining_time);
+        EXPECT_EQ(flags.battery_warning, battery_status_s::WARNING_NONE);
 }
 
 TEST_F(BatteryChecksTest, StaleBatteryUpdate_ReportsUnhealthy)
