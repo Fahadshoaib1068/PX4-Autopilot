@@ -1,0 +1,4 @@
+ .../commander/HealthAndArmingChecks/CMakeLists.txt |  9 +++++
+ .../ekf2/test/change_indication/ekf_gsf_reset.csv  | 34 ++++++++---------
+ .../ekf2/test/change_indication/iris_gps.csv       | 44 +++++++++++-----------
+ 3 files changed, 48 insertions(+), 39 deletions(-)
