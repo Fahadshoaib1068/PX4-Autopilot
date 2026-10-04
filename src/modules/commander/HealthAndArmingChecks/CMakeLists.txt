@@ -83,3 +83,7 @@ px4_add_functional_gtest(SRC ModeChecksTest.cpp
 px4_add_functional_gtest(SRC BatteryChecksTest.cpp
 	LINKLIBS health_and_arming_checks mode_util
 	)
+
+px4_add_functional_gtest(SRC PowerChecksTest.cpp
+    LINKLIBS health_and_arming_checks mode_util hysteresis
+)
